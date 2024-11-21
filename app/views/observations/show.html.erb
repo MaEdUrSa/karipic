@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @observation %>
+
+<div>
+  <%= link_to "Edita observacion", edit_observation_path(@observation), class:"btn btn-success px-2 py-2 fw-lith mt-3" %>
+  <%= link_to "Retorna ", observations_path, class:"btn btn-success px-2 py-2 fw-lith mt-3" %>
+
+  <%= button_to "Elimina observacion", @observation, method: :delete, class:"btn btn-success px-2 py-2 fw-lith mt-3" %>
+</div>

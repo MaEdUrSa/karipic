@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Observations" %>
+
+<h1>Observaciones</h1>
+
+<div id="observations">
+<% if user_signed_in? %>
+<%#= link_to "Nueva observacion", new_observation_path, class:"btn btn-success px-2 py-2 fw-lith mt-3" %>
+
+<% end %>
+  <% @observations.each do |observation| %>
+    <%= render observation %>
+    <p>
+    
+      <%#= link_to "ver observacion", observation , class:"btn btn-success px-2 py-2 fw-lith mt-3"%>
+      <%= link_to "Ver Fotos", photos_path, class:"btn btn-success px-2 py-2 fw-lith mt-3" %>
+       <%= link_to "Retornar", photos_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+    </p>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+<%#= link_to "Nueva observacion", new_observation_path, class:"btn btn-success px-2 py-2 fw-lith mt-3" %>
+
+<% end %>

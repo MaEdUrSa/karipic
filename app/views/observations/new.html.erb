@@ -1,0 +1,13 @@
+<% content_for :title, "New observation" %>
+
+<h1>Nueva observacion</h1>
+
+<%= render "form", observation: @observation %>
+
+<br>
+
+<div>
+  <%#= link_to "Back to observations", observations_path %>
+  <%= link_to "Retornar", photos_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+   <%= link_to "ver Foto ", photos_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+</div>

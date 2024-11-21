@@ -1,0 +1,35 @@
+<%= form_with(model: photo) do |form| %>
+  <% if photo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+        <% photo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :comment, style: "display: block" %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <%# video 3:33 del dia 17-10 %>
+  <div class="form-group">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%#= form.label :user_id, style: "display: block" %>
+    <%#= form.text_field :user_id %>
+  </div>
+
+    <div>
+        <%= form.submit class: "btn btn-success px-2 py-2 fw-lith mt-3"  %>
+        <%= link_to "Retorna ", photos_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+        <%#= link_to "Ver Fotos", @photos, class:"btn btn-success px-2 py-2 fw-lith mt-3" %> 
+    </div>
+<% end %>

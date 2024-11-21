@@ -1,0 +1,38 @@
+<div id="<%= dom_id observation %>">
+
+   <h6></h6>
+  <p>
+    <strong>Content:</strong>
+    <%= observation.content %>
+  </p>
+ 
+  <p>
+    <strong>Photo:</strong>
+    <%= observation.photo_id %>
+      <%#= image_tag observation.photo_id.images, class:"w-75" %>
+  </p>
+
+  <p>
+
+    <% if user_signed_in? %>
+      <strong>Usuario:</strong>
+      <%= observation.user_id %> <%= observation.user.name %>
+        <div class="owner-avatar p-2">
+            
+            <p>
+                              <% if observation.user.avatar.present? %>
+                                       <div class="owner-avatar">   
+                                    <%= image_tag observation.user.avatar, class:"w-75" %>
+                                </div>   
+                              <% else %>
+                                  no hay fotosss
+                              <% end %>
+            </p>
+        </div>
+      <%#= image_tag observation.user_id.avatar, class:"" %>
+      
+    <% end %>
+     
+  </p>
+
+</div>

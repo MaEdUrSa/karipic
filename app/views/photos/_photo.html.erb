@@ -1,0 +1,95 @@
+<div id="<%= dom_id photo %>">
+  <%# <p> %>
+    <%# <strong>Comment:</strong> %>
+    <%#= photo.comment %>
+  <%# </p> %>
+
+  <%# <p> %>
+    <%# <strong>User:</strong> %>
+    <%#= photo.user_id %>
+  <%# </p> %>
+
+ <%# video 18-10 min: 45:00 %>
+  <div class="row">
+    <div class="col-3">
+      <div class="card">
+       <% if photo.images.exists? %>
+          <%= image_tag photo.images.first, class:'card-img-top' %>
+       <% end %>
+        
+        <div class="owner-avatar p-2">
+          <%= photo.user.name %>
+        </div>
+        <h5 class="card-title p-2">Comentario del fotografo</h5>
+        <div class="card-text p-2">
+          <p><strong><%= photo.comment %></strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-7">
+      <div class="row">
+      <h5 class="card-title p-2">otras fotos</h5>
+        <% if photo.images.exists? %>
+            <% photo.images.each do |image| %>
+            <div class="col-5"><%= image_tag image, class:"w-75" %></div>
+          <% end %>       
+        <% end %>
+      </div>
+    </div>
+
+<%# #--------------  cometarios %>
+<% if user_signed_in? %>
+
+
+
+  <% if photo.observations.exists? %>
+        <p class="px-2"> <HR size="6" width="97%" align="center">  </p> 
+        <h3 class=" text-center">Comentarios </h3>
+        
+          <div class= "container"> 
+            <%= link_to "Retornar", photos_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+            <%= link_to "Eliminar", photos_path, class: "btn btn-danger px-2 py-2 fw-lith mt-3" %>
+            <%= link_to "Cometarios", observations_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+            <%= link_to "Nueva observacion", new_observation_path, class: "btn btn-success px-2 py-2 fw-lith mt-3"  %>
+        </div>
+        <p class="px-2 mb-4"> <HR size="6" width="97%" align="center">  </p> 
+        <% photo.observations.each do |observations| %>
+            <div class="container">
+              <div class="card">
+                  <%#= if observations.content.exists?  %>
+                    <p>Autor: <%= observations.user.name  %> </p>   
+                    <p>Comentario: <%= observations.content  %> </p> 
+                    <p>Usuario: <%= observations.user.id  %> </p>  
+
+                          <%# image_tag User.first.avatar, class:"w-75" %>
+
+                            usuario_user_id <%= observations.user_id %>
+                            <% if observations.user.avatar.present? %>
+                            <%# if observations.user.avatar.exists? %>
+                              <div class="owner-avatar">   
+                                  <%= image_tag observations.user.avatar, class:"w-75" %>
+                       
+                                  
+                              </div>   
+                            <% else %>
+                                no hay sss
+                            <% end %>
+                                
+                    <% if user_signed_in? %>
+                        <%#= link_to "Editar", edit_observation_path(observations.id), class:"btn btn-dark" %>
+                    <% end %>            
+                    <p class="px-1"> <HR size="8" width="97%" align="center">  </p> 
+                  <%# else %>
+                    <%# <p>No existe comentarios</p> %>
+                  <%# end %>
+              </div>
+            </div>
+      <% end %> 
+
+  <% end %>
+<% end %>
+
+
+
+</div>

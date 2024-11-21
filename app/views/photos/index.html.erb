@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Photos" %>
+
+<h1>Fotos sss</h1>
+
+<div id="photos">
+    <%= link_to "Nueva Foto ", new_photo_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+      <% @photos.each do |photo| %>
+        <%= render photo %>
+        <p>
+          <%#= link_to "Show this photo", photo %>
+        
+          <%= link_to "ver Foto ", photo, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
+        </p>
+      <% end %>
+</div>
+
+<%= link_to "Nueva Foto ", new_photo_path, class: "btn btn-success px-2 py-2 fw-lith mt-3" %>
