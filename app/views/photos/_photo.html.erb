@@ -14,7 +14,7 @@
     <div class="col-3">
       <div class="card">
        <% if photo.images.exists? %>
-          <%= image_tag photo.images.first, class:'card-img-top  w-75' %>
+          <%= image_tag photo.images.first, class:"card-img-top w-75" %>
        <% end %>
         
         <div class="owner-avatar p-2">
@@ -60,20 +60,20 @@
                   <%#= if observations.content.exists?  %>
                     <p>Autor: <%= observations.user.name  %> </p>   
                     <p>Comentario: <%= observations.content  %> </p> 
-                    <p>Usuario: <%= observations.user.id  %> </p>  
+  
 
                           <%# image_tag User.first.avatar, class:"w-75" %>
-
-                            usuario_user_id <%= observations.user_id %>
                             <% if observations.user.avatar.present? %>
+                             
                             <%# if observations.user.avatar.exists? %>
-                              <div class="owner-avatar">   
-                                  <%= image_tag observations.user.avatar, class:"w-75" %>
-                       
-                                  
+                              <div class="owner-avatar w-25% ">   
+                              <p>Usuario: <%= observations.user.id  %> 
+                                  <%= image_tag observations.user.avatar, size: "60x60" %>
+                                  </p> 
                               </div>   
                             <% else %>
-                                no hay sss
+                            <p>Usuario: <%= observations.user.id  %> 
+                                No tienes foto de perfil</p> 
                             <% end %>
                                 
                     <% if user_signed_in? %>

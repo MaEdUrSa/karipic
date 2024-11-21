@@ -15,19 +15,16 @@
   <p>
 
     <% if user_signed_in? %>
-      <strong>Usuario:</strong>
-      <%= observation.user_id %> <%= observation.user.name %>
+   
+      
         <div class="owner-avatar p-2">
-            
-            <p>
-                              <% if observation.user.avatar.present? %>
-                                       <div class="owner-avatar">   
-                                    <%= image_tag observation.user.avatar, class:"w-75" %>
-                                </div>   
-                              <% else %>
-                                  no hay fotosss
-                              <% end %>
-            </p>
+           <strong>Usuario:</strong>
+            <%= observation.user_id %> <%= observation.user.name %>
+          <% if observation.user.avatar.present? %> 
+                <%= image_tag observation.user.avatar , size: "70x70" %>  
+          <% else %>
+              No tienes foto de Perfil
+          <% end %>
         </div>
       <%#= image_tag observation.user_id.avatar, class:"" %>
       
